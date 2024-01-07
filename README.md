@@ -31,16 +31,12 @@ cfql = CFQL(instances, models)
 
 ### Define a prediction query using SQL syntax.
 ```python
-uniform_predictions = '''
-SELECT * 
-FROM (
-    SELECT *, ROW_NUMBER() OVER(partition by gender, race ORDER BY RANDOM() DESC) AS 'IdInGroup'
+prediction_query = '''
+SELECT Predictions.PredictionId 
     FROM Instances, Predictions
     WHERE Instances.instanceId = Predictions.instanceId
       AND Predictions.ClassifierId = 0
       AND Predictions.Label = 0
-    ) AS T
-WHERE T.'IdInGroup'<=5
 '''
 ```
 
@@ -54,7 +50,7 @@ cfs_not_and = (queries.NOT_AND, {'features': ['gender', 'race']})
 
 # This view focuses on instances where the model's prediction is 0 and the classifier ID is 0.
 # The counterfactuals generated will not modify the 'gender' and 'race' features.
-cfql.create_cfs_view(cf_type='CecCFs', prediction_query=uniform_predictions, cfs_query=cfs_not_and)
+cfql.create_cfs_view(cf_type='CecCFs', prediction_query=prediction_query, cfs_query=cfs_not_and)
 ```
 
 ##### The `create_cfs_view` method generates interpretable counterfactual view and prints their corresponding name. These views can then be queried to retrieve insightful information about counterfactuals.
