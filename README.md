@@ -68,7 +68,7 @@ FROM view_name
 """
 
 # Execute the query using the regular execute
-cfql_instance.execute(Q)
+cfql.execute(Q)
 ```
 
 
@@ -79,7 +79,7 @@ cfql_instance.execute(Q)
 - **Metric:** The metric parameter enables you to select a specific evaluation metric for assessing the quality of the generated counterfactuals. It plays a crucial role in determining how well the counterfactuals align with the desired characteristics.
 
 ```python
-cfql_instance.batch_execute(Q, metric=l0_metric, threshold=2)
+cfql.batch_execute(Q, metric=l0_metric, threshold=2)
 ```
 
 
