@@ -29,7 +29,7 @@ sqlparse
 cfql = CFQL(instances, models)
 ```
 
-### Define prediction queries and CFQs using SQL syntax.
+### Define a prediction query using SQL syntax.
 ```python
 uniform_predictions = '''
 SELECT * 
