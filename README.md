@@ -41,7 +41,7 @@ SELECT Predictions.PredictionId
 ```
 
 ### Define a counterfactual search query 
-#### To overcome the absence of an implementation for the C-Table algorithm, users are encouraged to import the CFQL queries related to their specific use case. By doing so, they can instantiate these queries and leverage the capabilities of CFQL for generating counterfactual explanations based on their requirements
+#### This part demonstare loading CFQL queries of interest. By doing so, users can instantiate these queries and leverage the capabilities of CFQL for generating counterfactual explanations based on their requirements
 
 
 ```python
