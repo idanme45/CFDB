@@ -78,5 +78,5 @@ cfql.execute(Q)
 cfql.batch_execute(Q, metric=l0_metric, threshold=2)
 ```
 
-#### You canobserve a concrete example in [link](https://github.com/idanme45/CFDB/blob/main/Eample%20Adult%20Income%20dataset.ipynb)
+#### You can observe a concrete example in [link](https://github.com/idanme45/CFDB/blob/main/Eample%20Adult%20Income%20dataset.ipynb)
 
