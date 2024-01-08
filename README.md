@@ -58,9 +58,15 @@ cfql.create_cfs_view(cf_type='CecCFs', prediction_query=prediction_query, cfs_qu
 ### execute the query
 
 ```python
+# This query provides a count for each feature
+# indicating how many counterfactuals within this view involve a change to that specific feature.
+# Finally, the results are sorted by their respective counts
+# providing insights into the prevalence of feature changes within the dataset.
 Q = """ 
-SELECT * 
-FROM view_name
+SELECT FeatureName, COUNT(*) AS n  
+FROM  view_name
+GROUP BY FeatureName
+ORDER BY n DESC
 """
 
 # Execute the query using the regular execute
